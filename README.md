@@ -1,4 +1,4 @@
 EmployeeSelfService
 ===================
 
-Employee Self Service System (my Diploma work)
+Employee Self Service System (Bachelor Diploma work)
