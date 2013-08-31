@@ -1,0 +1,42 @@
+﻿@model EmployeeSelfServiceDiploma.Models.TemplatedApplication
+
+@{
+    ViewBag.Title = "Редагування";
+}
+
+<h2 style="margin-bottom: 10px;">@Model.Title</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @Html.HiddenFor(model => model.TemplatedApplicationId)
+        @Html.HiddenFor(model => model.templatedMultiField4)
+
+        <div class="editor-label" style="margin: 2px 8px 10px 0;">
+            <p>Дата виходу у відпустку</p>
+            @Html.EditorFor(model => model.templatedField1)
+            @Html.ValidationMessageFor(model => model.templatedField1)
+        </div>
+
+        <div class="editor-label" style="margin: 0 8px 10px 0;">
+            <p>Кінцева дата</p>
+            @Html.EditorFor(model => model.templatedField2)
+            @Html.ValidationMessageFor(model => model.templatedField2)
+        </div>
+
+        <div class="editor-label" style="margin: 0 8px 18px 0;">
+            <p>Додатковий опис</p>
+            @Html.TextAreaFor(model => model.templatedMultiField3, 5, 80, null)
+            @Html.ValidationMessageFor(model => model.templatedMultiField3)
+        </div>
+        <p style="margin: 0 8px 15px 0;">
+            <input type="submit" value="Зберегти зміни" class="button" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

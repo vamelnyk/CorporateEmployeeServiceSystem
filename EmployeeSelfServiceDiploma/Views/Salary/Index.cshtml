@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EmployeeSelfServiceDiploma.Models.Salary>
+@{
+    ViewBag.Title = "Рахунки";
+}
+
+<h2>Рахунки</h2>
+<br />
+<div class="current-salary">
+    <p style="font-size: 18px;">@Html.DisplayNameFor(model => model.Value)</p>
+    <div class="current-block">
+        <p style="margin-bottom: 5px;">Нараховано @Html.DisplayFor(x => x.Last().Date)</p>
+        <p style="font-size: 32px; font-weight: 900; text-align: right;">@Model.Last().Value</p>
+    </div>
+</div>
+<div class="current-salary">
+    <p style="font-size: 18px;">@Html.DisplayNameFor(model => model.Premium)</p>
+    <div class="current-block">
+        <p style="margin-bottom: 5px;">Нараховано  @Html.DisplayFor(x => x.Last().Date)</p>
+        <p style="font-size: 32px; font-weight: 900; text-align: right;">@Model.Last().Premium</p>
+    </div>
+</div>
+<br />
+<div style="margin: 7px 0 5px 7px; clear:both;">
+    <p style="font-size: 18px; float:left;">Історія нарахувань заробітної плати</p>
+    <a href="@Url.Action("SalaryToPDF", "Salary")" style="float: right; margin-right: 12px;"><img src="~/Content/images/inText/pdf.png" style="width: 25px;"/></a>
+</div>
+<table style="width:100%; padding-right: 5px;">
+    <tr style="background: #fff; margin: 10px; text-align:center; font-weight: 700;">
+        <td style="padding: 10px;">
+            @Html.DisplayNameFor(model => model.Date)
+        </td>
+        <td style="padding: 10px;">
+            @Html.DisplayNameFor(model => model.Value)
+        </td>
+        <td style="padding: 10px;">
+            @Html.DisplayNameFor(model => model.Premium)
+        </td>
+    </tr>
+    @foreach (var item in Model) {    
+    <tr style="background: #e6e6e6;">
+        <td style="padding: 5px 0 5px 15px;">
+            @Html.DisplayFor(modelItem => item.Date) 
+        </td>
+        <td style="padding: 5px 15px 5px 0px; text-align:right;">
+            @Html.DisplayFor(modelItem => item.Value) грн.
+        </td>
+        <td style="padding: 5px 15px 5px 0px; text-align:right;">
+            @Html.DisplayFor(modelItem => item.Premium) грн.
+        </td>
+    </tr>
+}
+</table>

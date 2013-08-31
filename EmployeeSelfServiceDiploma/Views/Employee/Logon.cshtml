@@ -1,0 +1,22 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Employee
+
+@section Logon {
+    <p style="font-size: 15px; color: #d06200;">@ViewBag.Error</p>
+    @if (Session["user"] == null)
+    {
+        ViewBag.Title = "Вхід до сервісу";
+
+        using(Html.BeginForm())
+        {
+            <h4 style="color:red;">@Html.ValidationSummary(true)</h4>
+            <p>@Html.LabelFor( m => m.UserName )</p>
+            <p>@Html.TextBoxFor( m => m.UserName, new { @class= "wide" } )</p>
+            <p style="margin-bottom: 15px; font-size: 15px; color: #d06200;">@Html.ValidationMessageFor( m => m.UserName)</p>
+            <p>@Html.LabelFor( m => m.Password )</p>
+            <p>@Html.PasswordFor(m => m.Password, new { @class= "wide" })</p>
+            <p style="margin-bottom:35px; font-size: 15px; color: #d06200;">@Html.ValidationMessageFor(m => m.Password)</p>
+            <button type="submit" class="button">Увійти</button>
+        }
+    }
+}
+

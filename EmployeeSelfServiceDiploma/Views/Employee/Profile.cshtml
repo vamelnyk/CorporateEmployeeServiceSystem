@@ -1,0 +1,94 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Employee
+
+@{
+    ViewBag.Title = "Профіль";
+}
+<h2 style="margin-bottom: 15px;">Мій профіль</h2>
+
+<div class="profile-info" style="margin: 0 15px;">
+    <div class="profile-left-info" style="float: left; margin: 0 30px 20px 0">
+        <div class="employee-profile" style="margin-bottom: 35px;">
+            <img src="@Url.Content(@Model.Photo)" />
+        </div>
+        <div class="resume"> 
+            <p style="font-size: 42px; margin-top: 10px;">CV</p>
+            <p style="font-size: 17px;">переглянути</p>
+        </div>
+    </div>
+    <div class="profile-right-info" style="overflow: hidden;">
+        <div class="head">
+            <div class="display-field" style="padding: 10px 10px 5px 0; font-size: 24px; font-weight: 700; float: left;">
+                @Html.DisplayFor(model => model.FullName)
+            </div>
+            <p style="float: right;">
+                <a title="Редагувати" href="@Url.Action("Edit/" + @Model.EmployeeId, "Employee")" style="pointer-events: none; cursor: default;"><img style="width: 30px; margin-top: 10px;" alt="Редагувати" src="~/Content/images/edit.png" /></a>
+            </p>
+        </div>
+        <div style="clear: both;">
+            <div class="display-field" style="font-size: 17px; font-weight: 600; padding: 0 10px 10px 10px;">
+                @Html.DisplayFor(model => model.Position.Name)
+            </div>
+
+            <table style="font-size: 16px;">
+                <tbody>
+                    <tr>
+                        <td style="width: 200px;">
+                            <p style="margin: 8px 0;">@Html.DisplayNameFor(model => model.BirthDate)</p>
+                        </td>
+                        <td>
+                            <p>@Html.DisplayFor(model => model.BirthDate)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin: 6px 0;">@Html.DisplayNameFor(model => model.MaritalStatus.Status)</p>
+                        </td>
+                        <td>
+                            <p>@Html.DisplayFor(model => model.MaritalStatus.Status)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin: 6px 0;">@Html.DisplayNameFor(model => model.Address)</p>
+                        </td>
+                        <td>
+                            <p>@Html.DisplayFor(model => model.Address)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin: 6px 0;">@Html.DisplayNameFor(model => model.Phone)</p>
+                        </td>
+                        <td>
+                            <p>@Html.DisplayFor(model => model.Phone)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin: 6px 0;">@Html.DisplayNameFor(model => model.Email)</p>
+                        </td>
+                        <td>
+                            <p>@Html.DisplayFor(model => model.Email)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin: 6px 0;">@Html.DisplayNameFor(model => model.Im)</p>
+                        </td>
+                        <td>
+                            <p>@Html.DisplayFor(model => model.Im)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin: 6px 0;">Реалізовані проекти в компанії</p>
+                        </td>
+                        <td>
+                            <p style="font-size: 21px; font-weight: 600;">@Html.DisplayFor(model => model.Parcipiants.Count)</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

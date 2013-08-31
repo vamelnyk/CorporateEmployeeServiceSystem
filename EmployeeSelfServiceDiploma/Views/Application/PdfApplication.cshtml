@@ -1,0 +1,45 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Application
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="font-family:'Arial';" face="Arial" encoding='koi8-r'>
+    <table>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>To director of MindK Ltd.</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Nesterov O.O.</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>from @Model.Employee.Position.Name</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Model.Employee.FullName</td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <br />
+    <br />
+    <p></p>
+    <p style="text-align: center" align="center">APPLICATION</p>
+    <br />
+    <p>@Model.Body</p>
+    <br />
+    <br />
+    <br />
+    <p>@Model.Date</p>
+    <img src="@Server.MapPath("~/Content/images/inText/mindk.png")" width="90" height="53" align="right"/>
+</body>
+</html>
+
+

@@ -1,0 +1,49 @@
+﻿@model EmployeeSelfServiceDiploma.Models.TemplatedApplication
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="font-family:'Arial Unicode MS';">
+    <table>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>To director of MindK Ltd.</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Nesterov O.O.</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>from @Model.UserTemplatedApplications.FirstOrDefault().Employee.Position.Name</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Model.UserTemplatedApplications.FirstOrDefault().Employee.FullName</td>
+                <br />
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <br />
+    <br />
+    <p></p>
+    <p style="text-align: center" align="center">APPLICATION</p>
+    <br />
+    @if(Model.TemplatedApplicationId == 1)
+    {
+        <p>I would like to take a vocation for own account from @Model.templatedField1 to @Model.templatedField2 . @Model.templatedMultiField3</p>
+    }
+    <br />
+    <br />
+    <br />
+    <p>@Model.Date</p>
+    <img src="@Server.MapPath("~/Content/images/inText/mindk.png")" width="90" height="53" align="right"/>
+</body>
+</html>
+
+

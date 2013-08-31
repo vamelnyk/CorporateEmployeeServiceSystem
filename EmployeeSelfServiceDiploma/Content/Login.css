@@ -1,0 +1,231 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #333;
+    outline: none;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: underline;
+}
+
+    a:link, a:visited,
+    a:active, a:hover {
+        color: #333;
+    }
+
+    a:hover {
+        background-color: #c7d1d6;
+    }
+
+header, footer, hgroup, section {
+    display: block;
+}
+
+mark {
+    background-color: #a6dbed;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+    h5 a:link, h5 a:visited, h5 a:active {
+        padding: 0;
+        text-decoration: none;
+    }
+
+#main {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+header {
+    width: 1024px;
+    height: 150px;
+    background: url(images/bg-figure.png);
+    background-color: #006e94;
+    position: relative;
+    margin: 0;
+    -webkit-box-shadow: 7px 1px 7px -5px #2d2d2d, -7px 1px 7px -5px #2d2d2d; 
+    -moz-box-shadow: 7px 1px 7px -5px #2d2d2d, -7px 1px 7px -5px #2d2d2d; 
+    box-shadow: 7px 1px 7px -5px #2d2d2d, -7px 1px 7px -5px #2d2d2d;
+}
+
+.site-logo {
+    float: left;
+    margin: 15px 20px 0 40px;
+}
+
+.company-name {
+    min-width: 690px;
+    margin: 18px 0 0 20px;
+    display: block;
+    padding: 0 40px 8px 30px;
+    background: rgba(0, 0, 0, .2);
+    float: left;
+    color: #dadada;
+    font-size: 52px;
+}
+
+.company-name .pre {
+    font-size: 30px;
+    margin-top: -17px;
+}
+
+.head-line
+{
+    width: 100%;
+    height: 3px;
+    background: #2d2d2d;
+}
+
+.linear{
+    position: absolute; 
+    bottom: 0;
+    height: 8px;
+    width: 100%;
+    background: #2d2d2d;
+}
+
+#body_section {
+    position:relative;
+    clear:both;
+    background: #ebebeb url(images/bg-figure.png);
+    margin: 0 10px;
+    -webkit-box-shadow: 5px 0 5px -5px #333, -5px 0 5px -5px #333; 
+    -moz-box-shadow: 5px 0 5px -5px #333, -5px 0 5px -5px #333; 
+    box-shadow: 5px 0 5px -5px #333, -5px 0 5px -5px #333;
+}
+
+#panel {
+    width: 250px;
+    margin: 10px 20px 10px 10px;
+    float: left;
+    display: block;
+}
+
+#content {
+    overflow: hidden;
+    padding: 25px 25px 20px 10px;
+}
+
+#login-section {
+    background: #f3f3f3;
+    padding: 20px 30px;
+    font-size: 20px;
+}
+
+.form {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.wide {
+    width: 300px;
+    height: 25px;
+    font-size: 21px;
+    color: #2d2d2d;
+}
+
+.button {
+    width: 300px;
+    height: 35px;
+    color: #fff;
+    background: #3c6e91;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    clear: both;
+}
+
+#left-menu ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+}
+
+#left-menu ul li {
+     display: block;
+     background: #768a96;
+     width: 100%;
+     height: 55px;
+     color: #fff;
+     overflow: hidden;
+     margin: 9px 3px;
+     padding: 0;
+}
+
+#left-menu ul li a {
+    width: 100%;
+     height: 40px;
+     color: #494949;
+     font-weight: 500;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 18px;
+     margin: 0;
+     padding: 0;
+}
+
+#left-menu ul li p {
+    margin-top: -3px;
+}
+
+.left_li_img img {
+    width: 45px;
+    float: left;
+    margin: 10px 12px 10px 10px;
+}
+
+.left_li_name {
+    margin-top: 10px;
+}
+
+.foot-div 
+{
+    padding: 5px 0 10px 20px;
+}

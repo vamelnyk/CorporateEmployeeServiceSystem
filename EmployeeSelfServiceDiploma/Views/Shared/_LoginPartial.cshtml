@@ -1,0 +1,23 @@
+﻿@if (Session["user"] == null)
+{
+    <ul>
+        <li>@Html.ActionLink("Увійти", "Logon", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+} 
+else {
+    <div class="user-panel">
+        <div>
+            <div class="greeting-name" style="float:left; margin-right: 5px;">
+                <p>Вітаємо,<b><a href="@Url.Action("Profile", "Employee")">
+                        @Session["name"]
+                    </a></b>
+                </p>
+            </div>
+            <a title="Перейти до профілю" href="@Url.Action("Profile", "Employee")"><img style="width: 23px; margin-top: -1px;" alt="Перейти до профілю" src="~/Content/images/open-profile.png" /></a>
+        </div>
+        <div class="manipulations" style="clear:both; margin: 4px; text-align: right;">
+            <a title="Налаштування" href="@Url.Action("Profile", "Employee")"><img style="width: 23px; margin-right: 4px;" alt="Налаштування" src="~/Content/images/settings-profile.png" /></a>
+            <a title="Вийти" href="@Url.Action("Logout", "Employee")"><img style="width: 23px; margin-right: -3px;" alt="Вийти" src="~/Content/images/exit-profile.png" /></a>
+        </div>
+    </div>
+}

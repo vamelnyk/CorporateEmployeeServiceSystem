@@ -1,0 +1,86 @@
+﻿@model PagedList.IPagedList<EmployeeSelfServiceDiploma.Models.Employee>
+@{
+    ViewBag.Title = "Співробітники";
+}
+
+<h2>Співробітники компанії</h2>
+
+<div class="search-employees">
+@using (Html.BeginForm())
+{
+    <div>
+        <p style="float: left; margin-right: 3px;"><span style="margin-right: 8px;">Пошук за співробітниками</span> @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "wide" })</p> 
+        <p><input type="submit" value="" class="search-employee"/></p>
+    </div>
+    if (@ViewBag.CurrentFilter != null)
+    {
+        <p class="results" style="margin:20px 0 0 5px; font-size: 17px;">Результати для "@ViewBag.CurrentFilter"</p>
+    }
+}
+</div>
+
+<div class="employees-list">
+@foreach (var item in Model) {
+    <div class="employee">
+        @if(item.EmployeeId == (int)Session["user"])
+        {
+            <a href="@Url.Action("Profile", "Employee")">
+                <div class="avatar">
+                    <img src="@Url.Content(item.Photo)"/>
+                </div>
+                <div class="employee-list-info">
+                    <div class="employee-list-name">
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Position.Name)
+                    </div>
+                </div>
+            </a>
+        }
+        @if(item.EmployeeId != (int)Session["user"])
+        {
+            <a href="@Url.Action("Details/" + item.EmployeeId, "Employee")">
+                <div class="avatar">
+                    <img src="@Url.Content(item.Photo)"/>
+                </div>
+                <div class="employee-list-info">
+                    <div class="employee-list-name">
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Position.Name)
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+}
+</div>
+
+<div class="employees-navigation">
+    @if (@Model.PageCount == 1 || @Model.PageCount == 0)
+    {
+    }
+    else
+    {
+        <div>
+            Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            з @Model.PageCount
+     
+            @if (Model.HasPreviousPage)
+            {
+                @Html.ActionLink("<<", "Colleges", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+                @Html.Raw(" ");
+                @Html.ActionLink("< Попередня", "Colleges", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+            }
+     
+            @if (Model.HasNextPage)
+            {
+                @Html.ActionLink("Наступна >", "Colleges", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+                @Html.Raw(" ");
+                @Html.ActionLink(">>", "Colleges", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter=ViewBag.CurrentFilter  })
+            }
+        </div>
+    }
+</div>

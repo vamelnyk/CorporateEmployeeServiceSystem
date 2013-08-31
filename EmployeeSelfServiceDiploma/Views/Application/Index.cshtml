@@ -1,0 +1,42 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Employee
+
+@{
+    ViewBag.Title = "Заяви";
+}
+
+<h2 style="margin-bottom: 10px;">Заяви</h2>
+
+<p style="font-size: 17px; margin: 0 0 7px 5px;">Стандартні шаблони</p>
+<div class="standart-applications">
+@foreach (var tempapps in Model.UserTemplatedApplications.ToList())
+{
+    <a href="@Url.Action("Details/" + tempapps.TemplatedApplication.TemplatedApplicationId, "TemplatedApplication")">
+        <div class="stand-app-item">
+            <p>@Html.DisplayFor(modelItem => tempapps.TemplatedApplication.Title)</p>
+        </div>
+    </a>
+}
+
+</div>
+
+<div class="personal-applications-area" style="clear:both;">
+    <div style="margin-bottom: 10px;">
+        <p style="font-size: 17px; margin: -1px 10px 7px 5px; float: left;">Власні заяви</p>
+        <p>@Html.ActionLink("Створити нову заяву", "Create", "Application")</p>
+    </div>
+
+    <div class="personal-applications" style="clear: both;">
+    @foreach (var app in Model.Applications.ToList()) {
+        <div class="personal-app-item">
+            <a href="@Url.Action("Details/" + app.ApplicationId, "Application")">
+                <div class="personal-app-content">
+                    <p style="margin-bottom: 5px;">@Html.DisplayFor(modelItem => app.Title)</p>
+                    <div style="text-align: right;">
+                        <p style="font-size: 16px;"><span style="font-size: 14px;">Дата оформлення</span> @Html.DisplayFor(modelItem => app.Date)</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    </div>
+</div>

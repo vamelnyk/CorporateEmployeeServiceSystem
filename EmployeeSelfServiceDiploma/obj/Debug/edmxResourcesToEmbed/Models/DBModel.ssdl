@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище EnterpriseModel" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище EnterpriseModelContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Хранилище EnterpriseModel.__MigrationHistory" store:Type="Tables" />
+    <EntitySet Name="Article" EntityType="Хранилище EnterpriseModel.Article" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Хранилище EnterpriseModel.Department" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Хранилище EnterpriseModel.Employee" store:Type="Tables" />
+    <EntitySet Name="Enrollment" EntityType="Хранилище EnterpriseModel.Enrollment" store:Type="Tables" />
+    <EntitySet Name="MaritalStatus" EntityType="Хранилище EnterpriseModel.MaritalStatus" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Хранилище EnterpriseModel.Message" store:Type="Tables" />
+    <EntitySet Name="Parcipiant" EntityType="Хранилище EnterpriseModel.Parcipiant" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Хранилище EnterpriseModel.Position" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Хранилище EnterpriseModel.Project" store:Type="Tables" />
+    <EntitySet Name="ProjectStatus" EntityType="Хранилище EnterpriseModel.ProjectStatus" store:Type="Tables" />
+    <EntitySet Name="Salary" EntityType="Хранилище EnterpriseModel.Salary" store:Type="Tables" />
+    <EntitySet Name="Task" EntityType="Хранилище EnterpriseModel.Task" store:Type="Tables" />
+    <EntitySet Name="Training" EntityType="Хранилище EnterpriseModel.Training" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID" Association="Хранилище EnterpriseModel.FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employee_dbo_Position_PositionID" Association="Хранилище EnterpriseModel.FK_dbo_Employee_dbo_Position_PositionID">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Employee_EmployeeID" Association="Хранилище EnterpriseModel.FK_dbo_Enrollment_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Task_TaskID" Association="Хранилище EnterpriseModel.FK_dbo_Enrollment_dbo_Task_TaskID">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Message_dbo_Employee_EmployeeID" Association="Хранилище EnterpriseModel.FK_dbo_Message_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Parcipiant_dbo_Employee_EmployeeID" Association="Хранилище EnterpriseModel.FK_dbo_Parcipiant_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Parcipiant" EntitySet="Parcipiant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Parcipiant_dbo_Project_ProjectID" Association="Хранилище EnterpriseModel.FK_dbo_Parcipiant_dbo_Project_ProjectID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Parcipiant" EntitySet="Parcipiant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Position_dbo_Department_DepartmentID" Association="Хранилище EnterpriseModel.FK_dbo_Position_dbo_Department_DepartmentID">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID" Association="Хранилище EnterpriseModel.FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID">
+      <End Role="ProjectStatus" EntitySet="ProjectStatus" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Salary_dbo_Employee_EmployeeID" Association="Хранилище EnterpriseModel.FK_dbo_Salary_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Salary" EntitySet="Salary" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Model" Type="image" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="ArticleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" />
+    <Property Name="Content" Type="nvarchar" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="MaritalStatusID" Type="int" Nullable="false" />
+    <Property Name="PositionID" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" />
+    <Property Name="Phone" Type="nvarchar" />
+    <Property Name="Email" Type="nvarchar" />
+    <Property Name="Im" Type="nvarchar" />
+    <Property Name="Photo" Type="varbinary" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TaskID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="MaritalStatusId" />
+    </Key>
+    <Property Name="MaritalStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parcipiant">
+    <Key>
+      <PropertyRef Name="ParcipiantID" />
+    </Key>
+    <Property Name="ParcipiantID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="DepartmentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ProjectStatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectStatus">
+    <Key>
+      <PropertyRef Name="ProjectStatusId" />
+    </Key>
+    <Property Name="ProjectStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="SalaryId" />
+    </Key>
+    <Property Name="SalaryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="nvarchar" />
+    <Property Name="Premium" Type="nvarchar" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="TrainingId" />
+    </Key>
+    <Property Name="TrainingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID">
+    <End Role="MaritalStatus" Type="Хранилище EnterpriseModel.MaritalStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="Хранилище EnterpriseModel.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="MaritalStatusId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employee_dbo_Position_PositionID">
+    <End Role="Position" Type="Хранилище EnterpriseModel.Position" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="Хранилище EnterpriseModel.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enrollment_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="Хранилище EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="Хранилище EnterpriseModel.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enrollment_dbo_Task_TaskID">
+    <End Role="Task" Type="Хранилище EnterpriseModel.Task" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="Хранилище EnterpriseModel.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Message_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="Хранилище EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Message" Type="Хранилище EnterpriseModel.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Parcipiant_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="Хранилище EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Parcipiant" Type="Хранилище EnterpriseModel.Parcipiant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Parcipiant">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Parcipiant_dbo_Project_ProjectID">
+    <End Role="Project" Type="Хранилище EnterpriseModel.Project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Parcipiant" Type="Хранилище EnterpriseModel.Parcipiant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="Parcipiant">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Position_dbo_Department_DepartmentID">
+    <End Role="Department" Type="Хранилище EnterpriseModel.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Position" Type="Хранилище EnterpriseModel.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID">
+    <End Role="ProjectStatus" Type="Хранилище EnterpriseModel.ProjectStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Project" Type="Хранилище EnterpriseModel.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectStatus">
+        <PropertyRef Name="ProjectStatusId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ProjectStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Salary_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="Хранилище EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Salary" Type="Хранилище EnterpriseModel.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Salary">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

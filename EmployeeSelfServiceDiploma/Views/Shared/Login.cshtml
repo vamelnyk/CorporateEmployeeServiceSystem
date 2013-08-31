@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/Login.css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div id="main">
+            <header>
+                <div class="head-line">
+                </div>
+                <div class="site-logo">
+                    <a href="@Url.Action("Logon", "Employee")">
+                        <img src="~/Content/images/Logo.png"/>
+                    </a>
+                </div>
+                <div class="company-name">
+                    <p>Development Company</p>
+                    <p class="pre">for Employees</p>
+                </div>
+                <div class="linear"></div>
+            </header>
+            <div id="body_section">
+                <div>
+                    <div id="panel">
+                        <h2>Переваги сервісу</h2>
+                        <nav>
+                            <section id="left-menu">
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <div class="left_li_img">
+                                                <img src="~/Content/images/eye.png"/>
+                                            </div>
+                                            <div class="left_li_name">
+                                                <p>Сервіс дозволить бути в курсі подій підприємства</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div class="left_li_img">
+                                                <img src="~/Content/images/personal.png"/>
+                                            </div>
+                                            <div class="left_li_name">
+                                                <p>Вільний доступ до персональних даних</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>
+                                                <img src="~/Content/images/money.png" style="width: 44px; float: left; margin: 4px 13px 10px 10px;"/>
+                                            </div>
+                                            <div class="left_li_name">
+                                                <p>Моніторинг власних рахунків</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>
+                                                <img src="~/Content/images/zayavka.png" style="width: 40px; float: left; margin: 1px 17px 10px 10px;"/>
+                                            </div>
+                                            <div class="left_li_name">
+                                                <p>Легкий спосіб оформлення заявок</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>
+                                               <img src="~/Content/images/search.png" style="width: 43px; float: left; margin: 1px 14px 10px 10px;"/>
+                                            </div>
+                                            <div class="left_li_name">
+                                               <p>Зручний пошук даних</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div>
+                                                <img src="~/Content/images/feedback.png" style="width: 45px; float: left; margin: 1px 12px 10px 10px;"/>
+                                            </div>
+                                            <div class="left_li_name">
+                                                <p>Швидка комунікація між співробітниками</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <p style="text-align:center; margin: 17px 0; font-weight: 600;">Інші послуги</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </section>
+                        </nav>
+                    </div>
+                    <div id="content">
+                        <section id="login-section">
+                            <div id="login-content">
+                                <p style="margin-bottom: 5px;">Вітаємо, <b>гість</b></p>
+                                <p style="margin-bottom: 36px;">Для того, щоб увійти до системи авторизуйтесь!</p>
+                                 <div class="form">@RenderSection("Logon", required: true)</div>
+                             </div>
+                        </section>
+                    </div>
+                </div>
+                <footer>
+                    <div class="foot-div">
+                        <p>&copy; @DateTime.Now.Year — <b>Employee Self Service System</b> by Volodymyr Melnyk</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

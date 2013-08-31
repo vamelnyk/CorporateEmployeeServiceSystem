@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EmployeeSelfServiceDiploma.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Завдання";
+}
+
+<h2 style="margin-bottom: 15px;">Завдання</h2>
+
+<div class="task-list">
+@foreach (var item in Model) {
+    <div class="task">
+        <div class="task-head" style="margin-bottom: 7px;">
+            <p style="font-size: 18px; font-weight: 600; float: left; margin-bottom: 5px;">@Html.DisplayFor(modelItem => item.Task.Title)</p>
+            <div class="confirmation-status" style="text-align:right; margin: 5px 5px 0 10px;">
+                @if(item.Task.TaskStatusID != 2)
+                {
+                    <div class="confirm-button">
+                        <a title="Підтвердити виконання" href="@Url.Action("Confirm/" + item.TaskID, "Task")"><img style="width: 25px;" alt="Підтвердити виконання" src="~/Content/images/inText/confirmed.png"/></a>
+                    </div>
+                }
+                else
+                {
+                    <p style="color: #00850b; font-weight: 700; font-size: 16px; margin-bottom: 16px;">Виконано</p>
+                }
+            </div>
+        </div>
+        <p style="margin: 8px 10px 12px 10px; clear:both;">@Html.DisplayFor(modelItem => item.Task.Description)</p>
+        <div>
+            <div class="enrollments" style="float:left"><p>Відповідальні
+                @foreach (var i in item.Task.Enrollments.ToList())
+                {
+                    if (i.Employee.EmployeeId == (int)Session["user"])
+                    {
+                        <a title="@i.Employee.FullName" href="@Url.Action("Profile", "Employee")"><img src="@Url.Content(i.Employee.Photo)" class="task-profile"/></a>
+                    }
+                    else
+                    {
+                        <a title="@i.Employee.FullName" href="@Url.Action("Details/" + i.Employee.EmployeeId, "Employee")"><img src="@Url.Content(i.Employee.Photo)" class="task-profile"/></a>
+                    }
+                }
+                </p>
+            </div>
+            <p style="float:right; margin-top: 5px;">до @Html.DisplayFor(modelItem => item.Task.DueDate)</p>
+        </div>
+        <br />
+    </div>
+}
+</div>

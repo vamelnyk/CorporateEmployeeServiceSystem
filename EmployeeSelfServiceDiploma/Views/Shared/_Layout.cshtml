@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/Site.css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div id="main">
+            <div class="headandnav">
+                <header>
+                    <div class="head-line">
+                    </div>
+                    <div class="logo-div">
+                        <div class="site-logo">
+                            <a href="@Url.Action("About", "Home")">
+                               <img src="~/Content/images/Logo.png" style="height: 106px"/>
+                            </a>
+                        </div>
+                        <div class="company-name">
+                            <p>Development Company</p>
+                        </div>
+                    </div>
+                    <div class="form">@RenderSection("Logon", required: false)</div>
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </header>
+                <nav>
+                    <section id="top-menu">
+                        <ul>
+                            <li><a href="@Url.Action("About", "Home")">
+                                    <div>
+                                        <div class="li_img">
+                                            <img src="~/Content/images/about.png"/>
+                                        </div>
+                                        <div class="li_name">
+                                            <p>Про</p>
+                                            <p class="second">компанію</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><a href="@Url.Action("Rules", "Home")" style="pointer-events: none; cursor: default;">
+                                    <div>
+                                        <div class="li_img">
+                                            <img class="rules" src="~/Content/images/rules.png"/>
+                                        </div>
+                                        <div class="li_name">
+                                            <p>Правила</p>
+                                            <p class="second">та інструкції</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><a href="@Url.Action("Colleges", "Employee")">
+                                    <div>
+                                        <div class="li_img">
+                                            <img src="~/Content/images/employees.png"/>
+                                        </div>
+                                        <div class="li_name">
+                                            <p class="single">Співробітники</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><a href="@Url.Action("Vacancies", "Home")" style="pointer-events: none; cursor: default;">
+                                    <div>
+                                        <div class="li_img">
+                                            <img src="~/Content/images/vacancies.png"/>
+                                        </div>
+                                        <div class="li_name">
+                                            <p class="single">Вакансії</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><a href="@Url.Action("Events", "Home")" style="pointer-events: none; cursor: default;">
+                                    <div>
+                                        <div class="li_img">
+                                            <img src="~/Content/images/events.png" style="width: 29px; height: 29px"/>
+                                        </div>
+                                        <div class="li_name">
+                                            <p class="single">Події</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><a href="@Url.Action("Trainings", "Home")" style="pointer-events: none; cursor: default;">
+                                    <div>
+                                        <div class="li_img" style="width:23px;">
+                                            <img src="~/Content/images/trainings.png"/>
+                                        </div>
+                                        <div class="li_name">
+                                            <p class="single">Тренінги</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+            <div id="body_section">
+                <div>
+                    <div id="panel">
+                        <h2>Особиста панель</h2>
+                        <nav>
+                            <section id="left-menu">
+                                <ul>
+                                    <li><a href="@Url.Action("Messages", "Employee")" style="pointer-events: none; cursor: default;">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/message.png" style="margin: 11px 12px 0 12px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p>Мої повідомлення</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("Index", "Task")">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/tasks.png" style="margin: 7px 12px 0 12px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p>Мої завдання</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("Index", "Project")" style="pointer-events: none; cursor: default;">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/projects.png" style="margin: 13px 11px 0 10px; width: 31px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p>Мої проекти</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("Team", "Employee")" style="pointer-events: none; cursor: default;">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/team.png" style="margin: 11px 12px 0 12px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p>Моя команда</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("Index", "Salary")">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/payroll.png" style="margin: 13px 10px 0 11px; width: 31px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p>Рахунки</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("Index", "Application")">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/requests.png" style="margin: 8px 13px 0 11px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p>Заяви</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><a href="@Url.Action("Create", "Application")">
+                                            <div>
+                                                <div class="left_li_img">
+                                                    <img src="~/Content/images/addApplication.png" style="width:21px; margin: 8px 10px 0 10px;"/>
+                                                </div>
+                                                <div class="left_li_name">
+                                                    <p style="font-size:14px; margin-top: -3px;">Нова заява</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </section>
+                        </nav>
+                    </div>
+                    <div class="main-area">
+                        <div id="content">
+                            <section class="content-wrapper main-content clear-fix">
+                                @RenderBody()
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="foot-div">
+                        <p>&copy; @DateTime.Now.Year — <b>Employee Self Service System</b> by Volodymyr Melnyk</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnterpriseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EnterpriseEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="EnterpriseModel.C__MigrationHistory" />
+    <EntitySet Name="Article" EntityType="EnterpriseModel.Article" />
+    <EntitySet Name="Department" EntityType="EnterpriseModel.Department" />
+    <EntitySet Name="Employee" EntityType="EnterpriseModel.Employee" />
+    <EntitySet Name="Enrollment" EntityType="EnterpriseModel.Enrollment" />
+    <EntitySet Name="MaritalStatus" EntityType="EnterpriseModel.MaritalStatus" />
+    <EntitySet Name="Message" EntityType="EnterpriseModel.Message" />
+    <EntitySet Name="Parcipiant" EntityType="EnterpriseModel.Parcipiant" />
+    <EntitySet Name="Position" EntityType="EnterpriseModel.Position" />
+    <EntitySet Name="Project" EntityType="EnterpriseModel.Project" />
+    <EntitySet Name="ProjectStatus" EntityType="EnterpriseModel.ProjectStatus" />
+    <EntitySet Name="Salary" EntityType="EnterpriseModel.Salary" />
+    <EntitySet Name="Task" EntityType="EnterpriseModel.Task" />
+    <EntitySet Name="Training" EntityType="EnterpriseModel.Training" />
+    <AssociationSet Name="FK_dbo_Position_dbo_Department_DepartmentID" Association="EnterpriseModel.FK_dbo_Position_dbo_Department_DepartmentID">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID" Association="EnterpriseModel.FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Employee_dbo_Position_PositionID" Association="EnterpriseModel.FK_dbo_Employee_dbo_Position_PositionID">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Employee_EmployeeID" Association="EnterpriseModel.FK_dbo_Enrollment_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Message_dbo_Employee_EmployeeID" Association="EnterpriseModel.FK_dbo_Message_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Parcipiant_dbo_Employee_EmployeeID" Association="EnterpriseModel.FK_dbo_Parcipiant_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Parcipiant" EntitySet="Parcipiant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Salary_dbo_Employee_EmployeeID" Association="EnterpriseModel.FK_dbo_Salary_dbo_Employee_EmployeeID">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Salary" EntitySet="Salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Task_TaskID" Association="EnterpriseModel.FK_dbo_Enrollment_dbo_Task_TaskID">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Parcipiant_dbo_Project_ProjectID" Association="EnterpriseModel.FK_dbo_Parcipiant_dbo_Project_ProjectID">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Parcipiant" EntitySet="Parcipiant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID" Association="EnterpriseModel.FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID">
+      <End Role="ProjectStatus" EntitySet="ProjectStatus" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="MessageEmployee" Association="EnterpriseModel.MessageEmployee">
+      <End Role="Message" EntitySet="Message" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="ArticleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Position" Relationship="EnterpriseModel.FK_dbo_Position_dbo_Department_DepartmentID" FromRole="Department" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaritalStatusID" Type="Int32" Nullable="false" />
+    <Property Name="PositionID" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Im" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="4000" FixedLength="false" />
+    <NavigationProperty Name="MaritalStatus" Relationship="EnterpriseModel.FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID" FromRole="Employee" ToRole="MaritalStatus" />
+    <NavigationProperty Name="Position" Relationship="EnterpriseModel.FK_dbo_Employee_dbo_Position_PositionID" FromRole="Employee" ToRole="Position" />
+    <NavigationProperty Name="Enrollment" Relationship="EnterpriseModel.FK_dbo_Enrollment_dbo_Employee_EmployeeID" FromRole="Employee" ToRole="Enrollment" />
+    <NavigationProperty Name="Message" Relationship="EnterpriseModel.FK_dbo_Message_dbo_Employee_EmployeeID" FromRole="Employee" ToRole="Message" />
+    <NavigationProperty Name="Parcipiant" Relationship="EnterpriseModel.FK_dbo_Parcipiant_dbo_Employee_EmployeeID" FromRole="Employee" ToRole="Parcipiant" />
+    <NavigationProperty Name="Salary" Relationship="EnterpriseModel.FK_dbo_Salary_dbo_Employee_EmployeeID" FromRole="Employee" ToRole="Salary" />
+    <NavigationProperty Name="Message1" Relationship="EnterpriseModel.MessageEmployee" FromRole="Employee" ToRole="Message" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="EnrollmentID" />
+    </Key>
+    <Property Name="EnrollmentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="EnterpriseModel.FK_dbo_Enrollment_dbo_Employee_EmployeeID" FromRole="Enrollment" ToRole="Employee" />
+    <NavigationProperty Name="Task" Relationship="EnterpriseModel.FK_dbo_Enrollment_dbo_Task_TaskID" FromRole="Enrollment" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="MaritalStatusId" />
+    </Key>
+    <Property Name="MaritalStatusId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employee" Relationship="EnterpriseModel.FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID" FromRole="MaritalStatus" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Theme" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employee" Relationship="EnterpriseModel.FK_dbo_Message_dbo_Employee_EmployeeID" FromRole="Message" ToRole="Employee" />
+    <Property Type="String" Name="fromUserID" Nullable="false" />
+    <Property Type="String" Name="toUserID" Nullable="false" />
+    <Property Type="String" Name="SendingDate" Nullable="false" />
+    <NavigationProperty Name="Employee1" Relationship="EnterpriseModel.MessageEmployee" FromRole="Message" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Parcipiant">
+    <Key>
+      <PropertyRef Name="ParcipiantID" />
+    </Key>
+    <Property Name="ParcipiantID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="EnterpriseModel.FK_dbo_Parcipiant_dbo_Employee_EmployeeID" FromRole="Parcipiant" ToRole="Employee" />
+    <NavigationProperty Name="Project" Relationship="EnterpriseModel.FK_dbo_Parcipiant_dbo_Project_ProjectID" FromRole="Parcipiant" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="EnterpriseModel.FK_dbo_Position_dbo_Department_DepartmentID" FromRole="Position" ToRole="Department" />
+    <NavigationProperty Name="Employee" Relationship="EnterpriseModel.FK_dbo_Employee_dbo_Position_PositionID" FromRole="Position" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ProjectStatusID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Parcipiant" Relationship="EnterpriseModel.FK_dbo_Parcipiant_dbo_Project_ProjectID" FromRole="Project" ToRole="Parcipiant" />
+    <NavigationProperty Name="ProjectStatus" Relationship="EnterpriseModel.FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID" FromRole="Project" ToRole="ProjectStatus" />
+  </EntityType>
+  <EntityType Name="ProjectStatus">
+    <Key>
+      <PropertyRef Name="ProjectStatusId" />
+    </Key>
+    <Property Name="ProjectStatusId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Project" Relationship="EnterpriseModel.FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID" FromRole="ProjectStatus" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="SalaryId" />
+    </Key>
+    <Property Name="SalaryId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Premium" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="EnterpriseModel.FK_dbo_Salary_dbo_Employee_EmployeeID" FromRole="Salary" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Enrollment" Relationship="EnterpriseModel.FK_dbo_Enrollment_dbo_Task_TaskID" FromRole="Task" ToRole="Enrollment" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="TrainingId" />
+    </Key>
+    <Property Name="TrainingId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_dbo_Position_dbo_Department_DepartmentID">
+    <End Role="Department" Type="EnterpriseModel.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Position" Type="EnterpriseModel.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employee_dbo_MaritalStatus_MaritalStatusID">
+    <End Role="MaritalStatus" Type="EnterpriseModel.MaritalStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="EnterpriseModel.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="MaritalStatusId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="MaritalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Employee_dbo_Position_PositionID">
+    <End Role="Position" Type="EnterpriseModel.Position" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employee" Type="EnterpriseModel.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enrollment_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="EnterpriseModel.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Message_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Message" Type="EnterpriseModel.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="fromUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Parcipiant_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Parcipiant" Type="EnterpriseModel.Parcipiant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Parcipiant">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Salary_dbo_Employee_EmployeeID">
+    <End Role="Employee" Type="EnterpriseModel.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Salary" Type="EnterpriseModel.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Salary">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enrollment_dbo_Task_TaskID">
+    <End Role="Task" Type="EnterpriseModel.Task" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Enrollment" Type="EnterpriseModel.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Parcipiant_dbo_Project_ProjectID">
+    <End Role="Project" Type="EnterpriseModel.Project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Parcipiant" Type="EnterpriseModel.Parcipiant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="Parcipiant">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Project_dbo_ProjectStatus_ProjectStatusID">
+    <End Role="ProjectStatus" Type="EnterpriseModel.ProjectStatus" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Project" Type="EnterpriseModel.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectStatus">
+        <PropertyRef Name="ProjectStatusId" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ProjectStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MessageEmployee">
+    <End Type="EnterpriseModel.Message" Role="Message" Multiplicity="*" />
+    <End Type="EnterpriseModel.Employee" Role="Employee" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="toUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

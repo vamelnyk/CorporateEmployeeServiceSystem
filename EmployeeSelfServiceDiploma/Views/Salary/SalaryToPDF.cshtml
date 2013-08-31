@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EmployeeSelfServiceDiploma.Models.Salary>
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Історія нарахувань заробітної плати";
+}
+<!DOCTYPE html>
+<html>
+<body style="margin: 5px 20px;">
+    <p style="font-size: 16px;" align="center">MindK Ltd.</p>
+    <br />
+    <p style="font-size: 10px;" align="center">Ukraine, 40024, Sumy, Kharkovskaya str. 40/126</p>
+    <br />
+    <br />
+    <p style="font-size: 13px;">History of payroll of @Model.FirstOrDefault().Employee.FullName</p>
+    <br />
+    <table border="1" bordercolor="BLACK" width="100%">
+        <tr>
+            <td height="70px" align="center"><p><b>Date</b></p></td>
+            <td align="center"><p><b>Salary</b><br /></p></td>
+            <td align="center"><p><b>Premium</b></p></td>
+        </tr>
+            @foreach (var item in Model) {    
+        <tr height="70px">
+            <td valign="center">   @Html.DisplayFor(modelItem => item.Date)</td>
+            <td valign="center">  @Html.DisplayFor(modelItem => item.Value)</td>
+            <td valign="center">  @Html.DisplayFor(modelItem => item.Premium)</td>
+        </tr>
+        }
+    </table>
+</body>
+</html>

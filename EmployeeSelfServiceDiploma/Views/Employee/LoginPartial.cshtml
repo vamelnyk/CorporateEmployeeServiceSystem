@@ -1,0 +1,16 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Employee
+@if (Session["user"] != null)
+{
+    <div class="user-panel">
+        <p>Доброго дня,
+            <b><a href="@Url.Action("Details", "Employee")">
+                @Html.DisplayFor(model => model.FullName)
+            </a></b>
+        </p>
+        <p>@Html.ActionLink("Вийти", "Logout", "Employee")</p>
+    </div>
+} else {
+    <ul>
+        <li>@Html.ActionLink("Увійти", "Logon", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

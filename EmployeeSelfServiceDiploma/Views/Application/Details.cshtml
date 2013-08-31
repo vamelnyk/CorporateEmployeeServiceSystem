@@ -1,0 +1,28 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Application
+
+@{
+    ViewBag.Title = "Заява";
+}
+
+<h2 style="margin-bottom: 10px;">@Html.DisplayFor(model => model.Title)</h2>
+
+<fieldset>
+    <div class="display-label" style="font-size: 16px; font-weight: 500;">
+         <p>Описання заяви</p>
+    </div>
+    <div class="app-content-field" style="margin: 2px 8px 15px 8px; font-weight: 600; font-size: 17px;">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+
+    <div class="display-label" style="font-size: 14px; font-weight: 500;">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+</fieldset>
+<div style="margin: 5px 10px;">
+    <p style="margin-bottom: 5px;">@Html.ActionLink("Файл заяви", "File", new { id=Model.ApplicationId })</p>
+    <p style="margin-bottom: 5px;">@Html.ActionLink("Редагувати заяву", "Edit", new { id=Model.ApplicationId })</p>
+    <p style="margin-bottom: 5px;">@Html.ActionLink("Видалити заяву", "Delete", new { id=Model.ApplicationId })</p>
+</div>

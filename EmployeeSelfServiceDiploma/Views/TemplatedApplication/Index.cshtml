@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EmployeeSelfServiceDiploma.Models.TemplatedApplication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.templatedField1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.templatedField2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.templatedMultiField3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.templatedMultiField4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.templatedField1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.templatedField2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.templatedMultiField3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.templatedMultiField4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TemplatedApplicationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TemplatedApplicationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TemplatedApplicationId })
+        </td>
+    </tr>
+}
+
+</table>

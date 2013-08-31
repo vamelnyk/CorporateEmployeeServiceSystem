@@ -1,0 +1,22 @@
+﻿@model EmployeeSelfServiceDiploma.Models.Application
+
+@{
+    ViewBag.Title = "Видалення заявки";
+}
+
+<h2>Видалення заявки</h2>
+
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Ви впевнені, що хочете видалити дану заявку?</h3>
+<fieldset>
+    <div class="display-label">
+         @Html.DisplayFor(model => model.Title)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Details", "Application")
+    </p>
+}

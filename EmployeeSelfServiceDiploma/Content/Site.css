@@ -1,0 +1,488 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #333;
+    outline: none;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: underline;
+}
+
+    a:link, a:visited,
+    a:active, a:hover {
+        color: #333;
+    }
+
+header, footer, hgroup, section {
+    display: block;
+}
+
+footer {
+    clear: both;
+}
+
+mark {
+    background-color: #a6dbed;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+    h5 a:link, h5 a:visited, h5 a:active {
+        padding: 0;
+        text-decoration: none;
+    }
+
+#main {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.headandnav
+{
+    -webkit-box-shadow: 7px 1px 7px -5px #2d2d2d, -7px 1px 7px -5px #2d2d2d; 
+    -moz-box-shadow: 7px 1px 7px -5px #2d2d2d, -7px 1px 7px -5px #2d2d2d; 
+    box-shadow: 7px 1px 7px -5px #2d2d2d, -7px 1px 7px -5px #2d2d2d;
+}
+
+header {
+    width: 1024px;
+    height: 140px;
+    background: url(images/bg-figure.png);
+    background-color: #006e94;
+    position: relative;
+    margin: 0;
+}
+
+.site-logo {
+    float: left;
+    margin: 16px 20px 0 40px;
+}
+
+.company-name {
+    min-width: 460px;
+    margin: 21px 0 0 15px;
+    display: block;
+    padding: 7px 18px 10px 20px;
+    background: rgba(0, 0, 0, .2);
+    float: left;
+    color: #dadada;
+    font-size: 50px;
+}
+
+.head-line
+{
+    width: 100%;
+    height: 3px;
+    background: #2d2d2d;
+}
+
+.site-search {
+    margin: 0 0 0 20px;
+	padding-top: 15px;
+}
+
+#top-menu {
+	height: 50px;
+    background: #494949;
+	width: 100%;
+	bottom: 0;
+}
+
+#top-menu ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+}
+
+#top-menu ul li {
+     display: inline;
+     float: left;
+     width: 155px;
+     height: 50px;
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+     color: #999999;
+     line-height: 40px;
+     border-right: 2px solid #797979;
+     overflow: hidden;
+     margin: 0;
+     padding: 0;
+}
+
+#top-menu ul li a {
+     width: 155px;
+     height: 50px;
+     color: #ccc;
+     font-weight: 500;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 15px;
+     margin: 0;
+     padding: 0;
+}
+
+#top-menu ul li a:hover {
+    background-color: #666;
+}
+
+#top-menu ul li a p {
+    margin-top: -3px;
+}
+
+#top-menu ul li a p.single {
+    margin-top: 4px;
+}
+
+#top-menu ul li a .li_img {
+    float: left;
+    margin: 10px 12px 0 10px;
+}
+
+.li_img img {
+    height: 31px;
+}
+
+.rules {
+    height: 25px !important;
+    margin-top: 3px;
+}
+
+#top-menu ul li a .li_name {
+    float: left;
+    vertical-align: middle;
+}
+
+#top-menu ul li a .second {
+    margin-top: -23px;
+    padding: 0;
+    font-size: 12px;
+}
+
+#top-menu ul li:first-child {
+    border-left: none;
+    margin-left: 40px;
+}
+
+#top-menu ul li:last-child {
+    border-right: none;
+}
+
+#body_section {
+    background: #ebebeb url(images/bg-figure.png);
+    margin: 0 10px;
+    -webkit-box-shadow: 5px 0 5px -5px #333, -5px 0 5px -5px #333; 
+    -moz-box-shadow: 5px 0 5px -5px #333, -5px 0 5px -5px #333; 
+    box-shadow: 5px 0 5px -5px #333, -5px 0 5px -5px #333;
+}
+
+#panel {
+    width: 240px;
+    margin: 10px 15px 15px 10px;
+    float: left;
+    display: block;
+    background: #e1e1e1;
+    box-shadow:3px 3px 3px darkgrey;
+}
+
+#panel h2 {
+    margin: 5px 0 0 20px;
+}
+
+.main-area
+{
+    padding: 10px 15px 10px 10px;
+}
+
+#content {
+    background: rgba(255, 255, 255, .5);
+    overflow: hidden;
+    padding: 15px 15px 10px 15px;
+}
+
+#left-menu
+{
+    padding-bottom: 50px;
+}
+
+#left-menu ul {
+     list-style-type: none;
+     margin: 10px 0 0 0;
+     padding: 0;
+     padding-bottom: 50px;
+}
+
+#left-menu ul li {
+     display: inline;
+     float: left;
+     width: 100%;
+     height: 45px;
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+     color: #999999;
+     line-height: 40px;
+     border-bottom: 1px solid #c0c0c0;
+     overflow: hidden;
+     margin: 0;
+     padding: 0;
+}
+
+#left-menu ul li a {
+    width: 100%;
+     height: 45px;
+     color: #494949;
+     font-weight: 500;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 18px;
+     margin: 0;
+     padding: 0;
+}
+
+#left-menu ul li a:hover {
+    background-color: #c7d1d6;
+}
+
+#left-menu ul li a p {
+    margin-top: 1px;
+}
+
+#left-menu ul li a .left_li_img {
+    float: left;
+}
+
+.left_li_img img {
+    width: 28px;
+}
+
+#left-menu ul li a .left_li_name {
+    float: left;
+}
+
+#left-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.multi-line {
+    width: 500px;
+    height: 80px;
+}
+
+.search-employees
+{
+    margin: 10px 0 10px 10px;
+    font-size: 17px;
+}
+
+.wide {
+    width: 260px;
+    height: 22px;
+    font-size: 18px;
+    color: #2d2d2d;
+}
+
+.employees-list
+{
+    width:100%;
+    clear:both;
+    padding: 15px 10px 20px 15px;
+}
+
+.employee
+{
+    float: left;
+    width: 31%;
+    text-align: center;
+    background: rgba(225, 225, 225, .3);
+    margin: 0 10px 10px 0;
+}
+
+.avatar img{ /* селектор для картинки, що "всередині" класу avatar */
+    width: 112px;
+    border-radius: 112px; /* Радіус скругления */
+    border: 1px solid #ccc; /* Параметри рамки */
+    box-shadow: 0 0 2px #666; /* Параметри тіні */
+}
+
+.employee-list-name
+{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.employees-navigation
+{
+    clear: both;
+    padding: 15px 20px 12px 0;
+    text-align:right;
+}
+
+.current-salary
+{
+    display:block;
+    float: left;
+    margin: 0 50px 20px 0;
+}
+
+.current-block
+{
+    background: #fff;
+    padding: 10px 10px 5px 10px;
+    min-width: 200px;
+}
+
+#login
+{
+    float: right;
+    padding: 3px 10px 5px 10px;
+    background: rgba(0, 0, 0, .4);
+    color: #f5f5f5;
+}
+
+#login a {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+.foot-div 
+{
+    padding: 5px 0 10px 20px;
+}
+
+.employee-profile img{ /* селектор для картинки, що "всередині" класу avatar */
+    width: 150px;
+    border-radius: 150px; /* Радіус скругления */
+    border: 1px solid #ccc; /* Параметри рамки */
+    box-shadow: 0 0 2px #666; /* Параметри тіні */
+}
+
+/*User tasks*/
+.task{
+    background: rgba(225, 225, 225, .4);
+    padding: 5px 10px 23px 10px;
+    clear: both;
+    margin: 0 0 10px 0;
+}
+
+.task-profile{
+    width: 28px;
+    margin: 0 0 -10px 5px;
+    border-radius: 28px; /* Радіус скругления */
+    border: 1px solid #ccc; /* Параметри рамки */
+    box-shadow: 0 0 2px #666; /* Параметри тіні */
+}
+
+.resume
+{
+    margin: 10px;
+    background: rgba(225, 190, 50, .7);
+    width: 90px;
+    height: 90px;
+    color: #fff;
+    padding: 0 20px 40px 20px;
+    cursor: pointer;
+}
+
+.message
+{
+    background: #fff;
+    padding: 10px 0 10px 12px;
+    width: 140px;
+    cursor: pointer;
+}
+
+.search-employee
+{
+    background-image: url(/Content/images/inText/search-button.png);
+    width: 27px;
+    height: 27px;
+    border: 1px solid #666;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.stand-app-item
+{
+    float: left;
+    padding: 10px;
+    font-size: 26px;
+    color: #fff;
+    margin: 0 10px 20px 10px;
+    display: block;
+    width: 170px;
+    height: 130px;
+    background: rgba(220, 150, 10, .7);
+}
+
+.personal-app-item
+{
+    float: left;
+    width: 46%;
+    background: #fff;
+    margin: 0 15px 10px 0;
+}
+
+.personal-app-item a
+{
+    text-decoration: none;
+}
+
+.personal-app-content
+{
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+.button {
+    height: 30px;
+    color: #fff;
+    background: #3c6e91;
+    border: none;
+    cursor: pointer;
+}
