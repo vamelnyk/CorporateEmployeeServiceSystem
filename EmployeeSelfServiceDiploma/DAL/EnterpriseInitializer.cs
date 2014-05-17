@@ -7,7 +7,7 @@ using System.Web;
 
 namespace EmployeeSelfServiceDiploma.DAL
 {
-    public class EnterpriseInitializer : DropCreateDatabaseIfModelChanges<EnterpriseContext>
+    public class EnterpriseInitializer : DropCreateDatabaseAlways<EnterpriseContext>
     {
         protected override void Seed(EnterpriseContext context)
         {
